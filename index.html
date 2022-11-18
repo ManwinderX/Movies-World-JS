@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies World</title>
+    <link rel="stylesheet" href="./style.css" />
+    
+    <script src="https://kit.fontawesome.com/e4cb56625f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="landing-page">
+        <div class="container">
+            <div class="row">
+                <nav>
+                    <figure>
+                        <img id="logo" src="./assets/undraw_netflix.svg" alt="" />
+                    </figure>
+                    <h1 class="logo__title">Movies World</h1>
+                    <ul class="nav__link--list">
+                        <li class="nav__link click">
+                            <a href="#" class="nav__link--anchor link__hover-effect link__hover-effect--black">About</a>
+                        </li>
+
+                        <li class="nav__link click">
+                            <a href="#projects"
+                                class="nav__link--anchor link__hover-effect link__hover-effect--black">Search Movies</a>
+                        </li>
+
+                        <li class="nav__link click">
+                            <a href="#" class="nav__link--anchor contact__link">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <main>
+            <header class="header">
+                <div class="container">
+                    <div class="row">
+                        <h1 class="header__title">Search Your <b class="text__highlight">Favourite Movies</b> Here.</h1>
+                        <div class="search__bar">
+                            <input class="search__input" 
+                            id="search__term"
+                            type="text" placeholder="What are you looking for?">
+                            <button type="submit" onclick="renderMovies()" class="search__button">
+                                <i class="fa fa-search click"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+    </section>
+    <section id="movies">
+        <div class="container">
+            <div class="row">
+                <div class="header__wrapper">
+                    <h3>Search Results:</h3>
+                    <select onchange="filterMovies(event)" id="filter">
+                        <option value="" disabled selected>Filter</option>
+                        <option value="SORT_BY_NAME">Sort By Name</option>
+                        <option value="SORT_BY_RATING">Sort By Rating</option>
+                        <option value="SORT_BY_DATE">Sort By Date</option>
+                    </select>
+                </div>
+                <!-- <div class="movies__loading">
+                    <i class="fas fa-spinner movies__loading--spinner"></i>
+                </div> -->
+            </div>
+            <div class="movie__list">
+                <div class="movies">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row row__column">
+                <a href="#" class="footer__logo">
+                    <figure>
+                        <img class="footer__logo--img click" src="./assets/online-video.png" alt="">
+                    </figure>
+                </a>
+                <div class="footer__list">
+                    <a class="footer__link
+              link__hover-effect
+              link__hover-effect--white">About</a>
+                    <a href="#features" class="footer__link
+              link__hover-effect
+              link__hover-effect--white">Movies</a>
+                    <a class="footer__link link__hover-effect
+              link__hover-effect--white">Contact</a>
+                </div>
+                <div class="footer__copyright">Copyright &copy; 2022 Movies World</div>
+            </div>
+        </div>
+    </footer>
+    <script src="./index.js"></script>
+</body>
+
+</html>
