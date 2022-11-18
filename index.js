@@ -11,24 +11,20 @@ async function getMovies(search) {
 }
 
 async function renderMovies (filter) {
-    const data = await getMovies(search.value);
+    var data = await getMovies(search.value);
     
     movieList.classList += ' movies__loading';
-
-    if (!movies) {
-        movies = getMovies();
-    }
 
     movieList.classList.remove('movies__loading');
 
     if (filter === 'SORT_BY_NAME') {
-            const filteredMovies = movies.sort((a, b) => a.title.localeCompare(b.title))
+        data= data.sort((a, b) => a.title.localeCompare(b.title))
          }
          else if (filter === 'SORT_BY_RATING') {
-             const filteredMovies = movies.sort((a, b) => b.vote_average - a.vote_average)
+            data = data.sort((a, b) => b.vote_average - a.vote_average)
          }
          else if (filter === 'SORT_BY_DATE') {
-             const filteredMovies = movies.sort((a, b) => b.release_date - a.release_date)
+            data = data.sort((a, b) => b.release_date - a.release_date)
          }
 
     movieList.innerHTML = data.map(movie => {
@@ -53,7 +49,7 @@ async function renderMovies (filter) {
 }
 
 function filterMovies(event) {
-    renderMovies(event.target.value)
+    renderMovies(event.value)
 }
 
 getMovies();
