@@ -18,13 +18,13 @@ async function renderMovies (filter) {
     movieList.classList.remove('movies__loading');
 
     if (filter === 'SORT_BY_NAME') {
-        data= data.sort((a, b) => a.title.localeCompare(b.title))
+        data.sort((a, b) => a.title.localeCompare(b.title))
          }
          else if (filter === 'SORT_BY_RATING') {
-            data = data.sort((a, b) => b.vote_average - a.vote_average)
+            data.sort((a, b) => b.vote_average - a.vote_average)
          }
          else if (filter === 'SORT_BY_DATE') {
-            data = data.sort((a, b) => b.release_date - a.release_date)
+            data.sort((a, b) => b.release_date - a.release_date)
          }
 
     movieList.innerHTML = data.map(movie => {
