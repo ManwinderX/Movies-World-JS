@@ -1,8 +1,5 @@
-//5e6f1e7705030a57d1cf8a0624b0f539
-
 let movies;
 const search = document.querySelector('.search__input');
-const movieList = document.querySelector('.movies');
 
 async function getMovies(search) {
     const fetchMovies = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=5e6f1e7705030a57d1cf8a0624b0f539&&query=${search}`);
@@ -10,30 +7,27 @@ async function getMovies(search) {
     return moviesData.results;
 }
 
-async function renderMovies (filter) {
-    const data = await getMovies(search.value);
-    
-    movieList.classList += ' movies__loading';
+async function renderMovies(filter) {
+    var data = await getMovies(search.value);
+    const movieList = document.querySelector('.movies'); 
 
     if (!movies) {
         movies = getMovies();
     }
 
-    movieList.classList.remove('movies__loading');
-
     if (filter === 'SORT_BY_NAME') {
-            const filteredMovies = movies.sort((a, b) => a.title.localeCompare(b.title))
-         }
-         else if (filter === 'SORT_BY_RATING') {
-             const filteredMovies = movies.sort((a, b) => b.vote_average - a.vote_average)
-         }
-         else if (filter === 'SORT_BY_DATE') {
-             const filteredMovies = movies.sort((a, b) => b.release_date - a.release_date)
-         }
+        data = data.sort((a, b) => a.title.localeCompare(b.title))
+    }
+    else if (filter === 'SORT_BY_RATING') {
+        data = data.sort((a, b) => b.vote_average - a.vote_average)
+    }
+    else if (filter === 'SORT_BY_DATE') {
+        data = data.sort((a, b) => b.release_date - a.release_date)
+    }
 
     movieList.innerHTML = data.map(movie => {
         const imageUrl = `https://image.tmdb.org/t/p/w1280` + movie.poster_path;
-            return ` 
+        return ` 
                      <div class="movie">
                      <div class="movie__header">
                             <figure class="movie__poster--wrapper">
@@ -48,18 +42,13 @@ async function renderMovies (filter) {
                              <div class="release__year">Language: ${movie.original_language}</div>
                      </div>
                      </div>`
-        }
+    }
     ).join("")
 }
 
 function filterMovies(event) {
-    renderMovies(event.target.value)
+    renderMovies(event.value)
 }
-
-getMovies();
-
-
-
 
 
 

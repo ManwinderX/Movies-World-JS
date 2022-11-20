@@ -26,12 +26,12 @@
                         </li>
 
                         <li class="nav__link click">
-                            <a href="#projects"
+                            <a href="#movies"
                                 class="nav__link--anchor link__hover-effect link__hover-effect--black">Search Movies</a>
                         </li>
 
                         <li class="nav__link click">
-                            <a href="#" class="nav__link--anchor contact__link">Contact</a>
+                            <a href="mailto:manwinder.singh@email.com"  class="nav__link--anchor contact__link">Contact</a>
                         </li>
                     </ul>
                 </nav>
@@ -59,16 +59,13 @@
             <div class="row">
                 <div class="header__wrapper">
                     <h3>Search Results:</h3>
-                    <select onchange="filterMovies(event)" id="filter">
+                    <select onchange="filterMovies(this)" id="filter">
                         <option value="" disabled selected>Filter</option>
                         <option value="SORT_BY_NAME">Sort By Name</option>
                         <option value="SORT_BY_RATING">Sort By Rating</option>
                         <option value="SORT_BY_DATE">Sort By Date</option>
                     </select>
                 </div>
-                <!-- <div class="movies__loading">
-                    <i class="fas fa-spinner movies__loading--spinner"></i>
-                </div> -->
             </div>
             <div class="movie__list">
                 <div class="movies">
@@ -90,10 +87,10 @@
                     <a class="footer__link
               link__hover-effect
               link__hover-effect--white">About</a>
-                    <a href="#features" class="footer__link
+                    <a href="#movies" class="footer__link
               link__hover-effect
               link__hover-effect--white">Movies</a>
-                    <a class="footer__link link__hover-effect
+                    <a href="mailto:manwinder.singh@email.com" class="footer__link link__hover-effect
               link__hover-effect--white">Contact</a>
                 </div>
                 <div class="footer__copyright">Copyright &copy; 2022 Movies World</div>
